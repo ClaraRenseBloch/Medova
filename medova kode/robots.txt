@@ -1,0 +1,15 @@
+User-agent: Googlebot
+Disallow: /medova/
+
+User-agent: *
+Disallow: /
+
+
+
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: AdsBot-Google
+Disallow: /adsbot-google/
+
+

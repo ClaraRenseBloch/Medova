@@ -1,0 +1,942 @@
+/* Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+@import url(./reset.css);
+
+
+/* Basic styling */
+
+:root {
+    --darkBlue: #566b74;
+    --lightBlue: #97afba;
+    --veryLightBlue: #e1e9ec;
+    --white: #ffffff;
+    --offWhite: #f8f8f8;
+    --verylightpink: #ffe0e1;
+    --lightpink: #feccce;
+    --pink: #ea999c;
+    --darkpink: #942834;
+
+    font-family: 'MonteCarlo', cursive;
+    font-family: 'Playfair Display', serif;
+
+    overflow-x: hidden;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: var(--veryLightBlue);
+}
+
+
+
+
+/* Navigation bar and burgermenu  */
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar__menu {
+    display: none;
+    flex: 1 1 0%;
+    justify-content: flex-end;
+    margin: 0px 16px;
+}
+
+.navbar__menu a {
+    color: var(--white);
+    margin: 0 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.5s;
+    padding: 8px 16px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.navbar__menu a.is-active, .navbar__menu a:hover {
+    background-color: var(--lightBlue);
+    color: var(--white);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: var(--darkBlue);
+    padding: 5px 32px;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    z-index: 1;
+
+    user-select: none;
+
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+
+.hamburger span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: var(--veryLightBlue);
+    border-radius: 6px;
+    z-index: 1;
+    transform-origin: 0 0;
+    transition: 0.5s;
+}
+ 
+.hamburger:hover span:nth-child(2) {
+    transform: translateX(10px);
+    background-color: var(--white);
+}
+
+.hamburger.is-active span:nth-child(1) {
+    transform: translate(0px, -2px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(3) {
+    transform: translate(-3px, 3px) rotate(-45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(15px);
+}
+
+.navbar__header {
+    color: var(--white);
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.hamburger.is-active:hover span {
+    background-color: var(--lightBlue);
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 98;
+
+    padding-top: 7rem;
+    
+    opacity: 0;
+    transform: translateY(-100%);
+
+    background-color: var(--lightBlue);
+    color: var(--white);
+    transition: 0.5s;
+}
+
+.mobile-menu.is-open {
+    opacity: 0.9;
+    transform: translateY(0) ;
+    height: 50%;
+}
+
+
+.mobile-menu a {
+    display: block;
+    padding: 1.2rem;
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.mobile-menu a:hover {
+    color: var(--darkBlue);
+    background-color: var(--veryLightBlue);
+    transition: 0.5s;
+}
+
+.image-wrapper {
+    width: 5rem;
+}
+
+.image-wrapper img {
+    width: 140%;
+}
+
+
+
+
+
+/*  Hero content */
+
+.hero {
+    padding-top: 120px;
+    height: 70vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 1rem;
+    background-image: url(../img/heromobile.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.hero_header {
+    font-weight: 800;
+    font-size: 50px;
+    text-align: center;
+    letter-spacing: 0.045em;
+    color: var(--white);
+    margin-top: 0px;
+    line-height: 70px;
+    width: 90%;
+    margin-bottom: 0px;
+}
+
+.hero_text {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: var(--white);
+    width: 98%;
+}
+
+.hero a {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.045em;
+    color: var(--white);
+    background-color: var(--lightBlue);
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.hero a:hover {
+color: var(--darkBlue);
+background-color: var(--veryLightBlue);
+transition: all 0.3s ease 0s;
+}
+
+
+
+
+
+/*   blog section with teaboxes  */
+
+#blog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    margin-top: 0px;
+    position: relative;
+}
+
+.blog-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blog-heading h3{
+    font-size: 2.4rem;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.blog-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+}
+
+.blog-box{
+    width: 250px;
+    background-color: var(--offWhite);
+    border: 1px solid var--(--darkBlue);
+    margin: 20px;
+}
+
+.blog-img{
+    width: 100%;
+    height: auto;
+}
+
+.blog-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blog-text {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-text .blog-title{
+    font-size: 1.3rem;
+    color: var(--darkBlue);
+    font-weight: 500;
+}
+
+.blog-text p{
+    color: var(--darkBlue);
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0px;
+    line-height: 1rem;
+}
+
+.blog-text a {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.045em;
+    color: var(--white);
+    background-color: var(--lightBlue);
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 3px;
+    transition: .4s;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.blog-text a:hover{
+    background-color: var(--veryLightBlue);
+    color: var(--darkBlue);
+    transition: all 0.3s ease 0s;
+}
+
+
+
+
+
+
+/*article section with christmas edition */
+
+.article_container_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 40px;
+    margin-top: 0px;
+    position: relative;
+}
+
+.article_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px;
+    flex-wrap: wrap;
+    text-align: right;
+    background-color: var(--lightBlue);
+
+}
+
+.img-col img{
+    height: 450px;
+    width: 650px;
+}
+
+.img-col{
+    flex-basis: 40%;
+    padding: 40px;
+}
+
+.text-col h1{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    font-weight: 600;
+    color: var(--white);
+    padding: 10px 20px 20px 0px;
+    line-height: 3.5rem;
+}
+
+.text-col p{
+    font-size: 1.7rem;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    color: var(--white);
+    padding: 10px 20px 40px 0px;
+}
+
+ .text-col a{
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    font-weight: 800;
+    line-height: 23px;
+    color: var(--white);
+    background-color: var(--darkBlue);
+    text-decoration: none;
+    padding: 6px 35px;
+    border-radius: 3px;
+    transition: .4s;
+    text-align: center;
+    margin: 30px 20px;
+}
+
+.text-col a:hover{
+    background-color: var(--veryLightBlue);
+    color: var(--darkBlue);
+    transition: all 0.3s ease 0s;
+}
+
+
+
+
+
+
+/*  Footer styling   */
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    text-decoration: none;
+    background-color: var(--darkBlue);
+    color: var(--white);
+    width: 100vw;
+    padding: 1rem;
+    font-weight: 300;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    row-gap: 1rem;
+    /*background-image: url(../img/wave-haikei.svg);                 Hvordan virker SVG? */
+}
+
+.footer a{
+    color: var(--white);
+    background-color: var(--darkBlue);
+    text-decoration: none;
+}
+
+.footer__open-header {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.footer__info-header {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.footer__open-list {
+    line-height: 1.8rem;
+    
+}
+.footer__info-list {
+    line-height: 1.8rem;
+}
+
+
+
+
+
+
+
+
+/*  om os */
+
+
+.om_hero {
+    height: 70vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 1rem;
+    background-image: url(../img/logo_darkblue.png);
+    background-position: center;
+    background-size: cover;
+    padding: 20px;
+}
+
+.about h3 {
+    font-weight: 500;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--darkBlue);
+    padding: 50px 0px 0px 10px;
+}
+
+.about p {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 40px;
+    text-align: center;
+    color: var(--darkBlue);
+    padding: 2rem;
+}
+
+
+
+
+
+/*   blog section with mix your own tea  */
+
+.mix_hero_heading{
+    font-weight: 800;
+    font-size: 4rem;
+    text-align: center;
+    color: var(--darkBlue);
+    padding: 110px 0px 0px 10px;
+    letter-spacing: 0.2rem;
+}
+
+.mix_hero_subheading{
+    font-weight: 500;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--darkBlue);
+    padding: 30px 0px 20px 0px;
+}
+
+
+.mix_hero p{
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--darkBlue);
+    padding: 10px 85px 0px 85px;
+    line-height: 2rem;
+}
+
+#mix_blog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    margin-top: 0px;
+    position: relative; 
+}
+
+
+.mix_blog-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px 0px;
+    flex-wrap: wrap;
+}
+
+.mix_blog-box{
+    width: 250px;
+    background-color: var(--offWhite);
+    border: 1px solid var--(--darkBlue);
+    margin: 20px;
+}
+
+.mix_blog-img{
+    width: 100%;
+    height: auto;
+}
+
+.mix_blog-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.mix_blog-text {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.mix_blog-text .mix_blog-title{
+    font-size: 1.3rem;
+    color: var(--darkBlue);
+    font-weight: 500;
+}
+
+
+.mix_blog-text p{
+    color: var(--darkBlue);
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0px;
+    line-height: 1rem;
+}
+
+.mix_blog-text a {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.045em;
+    color: var(--white);
+    background-color: var(--lightBlue);
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 3px;
+    transition: .4s;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.mix_blog-text a:hover{
+    background-color: var(--veryLightBlue);
+    color: var(--darkBlue);
+    transition: all 0.3s ease 0s;
+}
+
+
+
+
+
+
+
+
+/* Christmas collection styling */
+
+
+/*  Christmas hero content */
+
+
+
+.merry_hero {
+    padding-top: 120px;
+    height: 70vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 1rem;
+    background-image: url(../img/heromobile.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.merry_hero_header {
+    font-weight: 800;
+    font-size: 70px;
+    text-align: center;
+    letter-spacing: 0.045em;
+    color: var(--white);
+    margin-top: 0px;
+    line-height: 70px;
+    width: 90%;
+    margin-bottom: 0px;
+}
+
+.merry_hero p{
+    font-weight: 600;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0.045em;
+    color: var(--white);
+    margin-top: 0px;
+    line-height: 30px;
+    width: 80%;
+    margin-bottom: 15px;
+}
+
+.merry_hero a {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.045em;
+    color: var(--white);
+    background-color: var(--lightBlue);
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.merry_hero a:hover {
+color: var(--darkBlue);
+background-color: var(--veryLightBlue);
+transition: all 0.3s ease 0s;
+}
+
+/*   blog section with christmas teaboxes  */
+
+#merry_blog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    margin-top: 0px;
+    position: relative;
+    background-color: #ffeaeb;
+}
+
+.merry_blog-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.merry_blog-heading h3{
+    font-size: 2.4rem;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.merry_blog-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+}
+
+.merry_blog-box{
+    width: 250px;
+    background-color: var(--lightpink);
+    border: 1px solid var--(--darkBlue);
+    margin: 20px;
+}
+
+.merry_blog-img{
+    width: 100%;
+    height: auto;
+}
+
+.merry_blog-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.merry_blog-text {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.merry_blog-text .merry_blog-title{
+    font-size: 1.3rem;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.merry_blog-text p{
+    color: var(--white);
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0px;
+    line-height: 1rem;
+}
+
+.merry_blog-text a {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.045em;
+    color: var(--white);
+    background-color: var(--darkpink);
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 3px;
+    transition: .4s;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.merry_blog-text a:hover{
+    background-color: var(--pink);
+    color: var(--white);
+    transition: all 0.3s ease 0s;
+}
+
+
+
+
+
+
+
+
+
+/* Responsive styling */
+
+
+/* mobile */
+@media screen and (min-width: 390px) {
+
+    /* Landingpage styling  */
+
+    /* navbar  */
+    .image-wrapper {
+        justify-content: center;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+
+    .navbar__menu {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    /*  Hero content */
+    .hero_header {
+      font-size: 40px;
+    }
+
+
+   
+/*article section with christmas edition */
+
+.article_container_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 60px;
+    margin-top: 0px;
+    position: relative;
+}
+
+.article_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px;
+    flex-wrap: wrap;
+    text-align: right;
+    background-color: var(--lightBlue);
+    padding-bottom: 60px;
+}
+
+.img-col img{
+    height: 200px;
+    width: 300px;
+}
+
+.text-col h1{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.text-col p{
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+    text-align: center;
+    padding: 0px;
+}
+
+ .button_wrapper{
+    text-align: center;
+    padding-top: 40px
+ }
+ 
+ .text-col a{
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    font-weight: 800;
+    line-height: 23px;
+    color: var(--white);
+    background-color: var(--darkBlue);
+    text-decoration: none;
+    padding: 6px 35px;
+    border-radius: 3px;
+    transition: .4s;
+    text-align: center;
+    margin: 30px 20px;
+}
+
+.merry_hero_header {
+    font-size: 45px;
+}
+
+  
+}
+
+
+/* desktop */
+@media screen and (min-width: 900px) {
+
+    /* Landingpage styling  */
+
+    /* navbar  */
+    .hamburger {
+        display: none;
+    }
+
+    .navbar__menu {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: none;
+    }
+    
+   
+}
